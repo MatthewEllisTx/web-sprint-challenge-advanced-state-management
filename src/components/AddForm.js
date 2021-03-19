@@ -26,7 +26,14 @@ const AddForm = (props) => {
         if (state.name === "" || state.position === "" || state.nickname === "") {
             // errorMessage = "Name, position and nickname fields are required.";
             dispatch(newError('Name, position, and nickname fields are required'))
+            return
         }
+        // because of return don't need an else
+        const newSmurf = {
+            ...state,
+            id: new Date()
+        }
+        dispatch({type: ADD_SMURF, data: newSmurf})
     }
 
     // const errorMessage = "";
@@ -64,4 +71,4 @@ export default AddForm;
 //1. Connect the errorMessage, setError and addSmurf actions to the AddForm component. DONE
 //2. Replace all instances of the errorMessage static variable with your error message state value. DONE 
 //3. Within the handleSubmit function, replace the static assignment to errorMessage with a call to the setError action. Test that an error is displayed when this validation code fails. DONE
-//4. Within the handleSubmit function, call your addSmurf action with the smurf name, position, nickname and summury passed as arguments. Test that a smurf is correctly added to when the form is submitted.
+//4. Within the handleSubmit function, call your addSmurf action with the smurf name, position, nickname and summury passed as arguments. Test that a smurf is correctly added to when the form is submitted. DONE
