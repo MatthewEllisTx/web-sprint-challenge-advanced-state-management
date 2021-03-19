@@ -16,6 +16,9 @@ export default function reducer(state = initialState, action){
     case ADD_SMURF:
       return {
         ...state,
+        // for some reason if I spread the empty state.smurfs react complaigns about each prop having a unique key
+        // and doesn't reander
+        // so this makes sure state.smurfs doesn't get spread if it's empty, though I dunno why that happens anyway
         smurfs: state.smurfs.length !== 0 ? [...state.smurfs, action.data] : action.data,
         loading: false,
         error: '',

@@ -31,7 +31,7 @@ const AddForm = (props) => {
         // because of return don't need an else
         const newSmurf = {
             ...state,
-            id: new Date()
+            id: new Date() // easy way to get a new id. Would probably be done by backend if this were real stuff
         }
         dispatch({type: ADD_SMURF, data: newSmurf})
     }

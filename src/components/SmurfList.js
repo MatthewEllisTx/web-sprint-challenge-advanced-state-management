@@ -18,7 +18,7 @@ function SmurfList(){
   if (loading) {
     return <h1>Loading...</h1>;
   }
-  console.log(smurfs)
+
   if(smurfs.length > 0){
     return(
       <div className="listContainer">
