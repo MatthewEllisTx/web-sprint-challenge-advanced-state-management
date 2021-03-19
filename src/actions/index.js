@@ -1,6 +1,7 @@
 import axios from 'axios'
 
 export const START_LOADING = 'START_LOADING'
+export const ADD_SMURF = 'ADD_SMURF'
 
 export function fetchSmurfs(){
   // console.log('fetchSmurs') for checking thunk worked
@@ -11,6 +12,7 @@ export function fetchSmurfs(){
     axios.get('http://localhost:3333/smurfs')
       .then( res => {
         // console.log(res.data) checking data loaded
+        dispatch({type: ADD_SMURF, data: res.data})
       })
       .catch( err => {
         console.log(err)
