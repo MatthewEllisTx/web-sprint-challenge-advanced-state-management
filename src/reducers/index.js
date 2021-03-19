@@ -1,4 +1,4 @@
-import { START_LOADING, ADD_SMURF } from '../actions/index'
+import { START_LOADING, ADD_SMURF, ERROR_FETCHING } from '../actions/index'
 
 const initialState = {
   smurfs: [],
@@ -19,6 +19,12 @@ export default function reducer(state = initialState, action){
         smurfs: action.data,
         loading: false,
         error: '',
+      }
+    case ERROR_FETCHING:
+      return {
+        ...state,
+        loading: false,
+        error: ERROR_FETCHING,
       }
     default:
       return state

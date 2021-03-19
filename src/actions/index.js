@@ -2,12 +2,17 @@ import axios from 'axios'
 
 export const START_LOADING = 'START_LOADING'
 export const ADD_SMURF = 'ADD_SMURF'
+export const ERROR_FETCHING = 'Could not fetch smurfs'
 
 export function fetchSmurfs(){
   // console.log('fetchSmurs') for checking thunk worked
   return dispatch => {
     // console.log('fetch smurfs dispatch') for checking thunk worked
     dispatch({type: START_LOADING})
+
+    setTimeout(() => {
+      dispatch({type: ERROR_FETCHING})
+    }, 500) // test that error works properly
 
     setTimeout(() => {
       axios.get('http://localhost:3333/smurfs')
@@ -17,6 +22,7 @@ export function fetchSmurfs(){
         })
         .catch( err => {
           console.log(err)
+          dispatch({type: ERROR_FETCHING})
         })
       
     }, 1000) // done to test to see if Loading... actually shows up. Otherwise it's too fast to see
