@@ -1,11 +1,22 @@
+import { START_LOADING } from '../actions/index'
 
-export const initialState = {
+const initialState = {
+  smurfs: [],
+  loading: false,
+  error: '',
 }
 
-const reducer = ()=>{
+export default function reducer(state = initialState, action){
+  switch(action.type){
+    case START_LOADING:
+      return {
+        ...state,
+        loading: true
+      }
+    default:
+      return state
+  }
 }
-
-export default reducer;
 
 //Task List:
 //1. Adds the following state values into the initialState:
