@@ -19,13 +19,13 @@ const rootElement = document.getElementById("root");
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-        <App />
+      <App />
     </Provider>
   </React.StrictMode>,
 rootElement
 );
 
 //Task List:
-//1. Add in all necessary components and libary methods.
-//2. Create a store that includes thunk and logger middleware support.
-//3. Wrap the App component in a react-redux Provider element.
+//1. Add in all necessary components and libary methods. PROBABLY DONE
+//2. Create a store that includes thunk and logger middleware support. DONE
+//3. Wrap the App component in a react-redux Provider element. DONE
