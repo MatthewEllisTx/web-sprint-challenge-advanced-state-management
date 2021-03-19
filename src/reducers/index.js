@@ -16,7 +16,7 @@ export default function reducer(state = initialState, action){
     case ADD_SMURF:
       return {
         ...state,
-        smurfs: action.data,
+        smurfs: state.smurfs.length !== 0 ? [...state.smurfs, action.data] : action.data,
         loading: false,
         error: '',
       }
